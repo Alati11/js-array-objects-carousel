@@ -29,22 +29,30 @@ const images = [
 ]
 // console.log(images);
 
-let carouselElement = document.querySelector('.carousel');
+let carouselElement = document.querySelector('.carousel__item');
 // console.log(carouselElement);
 
-for(let i = 0; i <images.length; i++) {
-		let marvelImages = images[i];
-	
-		const photo = marvelImages.image;
-		const name = marvelImages.title;
-		const description = marvelImages.text
+for (let i = 0; i < images.length; i++) {
+	let marvelImages = images[i];
 
-		console.log(marvelImages);
-		// - Stampo le informazioni di ogni immagine su DOM
+	const photo = marvelImages.image;
+	const name = marvelImages.title;
+	const description = marvelImages.text
 
-		let card = "${photo} ${name} ${description}";
-		
-		
-		carouselElement.innerHTML += card;
-		console.log(card);
+	console.log(marvelImages);
+
+	// - Stampo le informazioni di ogni immagine su DOM
+	let card = `<div class="carousel__item" "${photo}" ${name} ${description}/>`
+
+// errore stringa
+	// const card = `
+	// <div class="card">
+	//   "${photo}"
+	//   ${name}
+	//   ${description}
+	// </div>
+	// `
+
+	carouselElement.innerHTML += card;
+	console.log(card);
 }
