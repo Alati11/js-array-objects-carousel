@@ -44,15 +44,59 @@ for (let i = 0; i < images.length; i++) {
 	// - Stampo le informazioni di ogni immagine su DOM
 	// let card = `<div class="carousel__item" "${photo}" ${name} ${description}/>`
 
-	// errore stringa
 	const card = `
-	<div class="carousel__item active">
+	<div class="carousel__item">
 		<img src="${photo}" alt="">
 		<h1>${name}</h1>
 		<p> ${description}</p>	
 	</div>	
 	`
-
 	carouselElement.innerHTML += card;
 	console.log(card);
 }
+
+// meorizzando lo stato del carosello (indice della slide attiva)
+const itemDOMElements = document.querySelectorAll('.carousel__item')
+console.log(itemDOMElements)
+let currentIndex = 0
+
+// aggiunedo la classe active alla slide attiva
+let currentSlide = itemDOMElements[currentIndex]
+currentSlide.classList.add('active')
+
+// carousel controls
+const arrowTop = document.querySelector('.carousel .arrow--top')
+const arrowBottom = document.querySelector('.carousel .arrow--bottom')
+console.dir(arrowTop, arrowBottom)
+
+arrowBottom.addEventListener('click', function () {
+	console.log('click bottom')
+
+	const activeSlideElement = itemDOMElements[currentIndex]
+	activeSlideElement.classList.remove('active')
+
+	if (currentIndex === itemDOMElements.length - 1) {
+		currentIndex = 0
+	} else {
+		currentIndex++
+	}
+
+	const nextSlideElement = itemDOMElements[currentIndex]
+	nextSlideElement.classList.add('active')
+})
+
+arrowTop.addEventListener('click', function () {
+	console.log('click top')
+
+	const activeSlideElement = itemDOMElements[currentIndex]
+	activeSlideElement.classList.remove('active')
+
+	if (currentIndex === 0) {
+		currentIndex = itemDOMElements.length - 1
+	} else {
+		currentIndex--
+	}
+
+	const nextSlideElement = itemDOMElements[currentIndex]
+	nextSlideElement.classList.add('active')
+})

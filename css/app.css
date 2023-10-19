@@ -3,10 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-/* body {
-    display: flex;
-    justify-content: center;
-} */
+* body {
+    background-color: black;  
+} 
 
 img {
     max-width: 100%;
@@ -26,9 +25,11 @@ section {
 
 }.carousel__item {
 	width: 100%;
+	max-width: 500px;
 	display: none;
 	aspect-ratio: 21/9;
 	object-fit: cover;
+	margin: 0 auto	;
 }
 
 .carousel__item.active {
@@ -76,3 +77,11 @@ section {
 	bottom: 20px;
 	padding-bottom: 3px;
 }
+
+h1, p { 
+	text-align: right;
+	margin-top:10px;
+	color: white;
+} 
+
+
