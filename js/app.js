@@ -29,7 +29,7 @@ const images = [
 ]
 // console.log(images);
 
-let carouselElement = document.querySelector('.carousel__item');
+let carouselElement = document.querySelector('.carousel');
 // console.log(carouselElement);
 
 for (let i = 0; i < images.length; i++) {
@@ -42,16 +42,16 @@ for (let i = 0; i < images.length; i++) {
 	console.log(marvelImages);
 
 	// - Stampo le informazioni di ogni immagine su DOM
-	let card = `<div class="carousel__item" "${photo}" ${name} ${description}/>`
+	// let card = `<div class="carousel__item" "${photo}" ${name} ${description}/>`
 
-// errore stringa
-	// const card = `
-	// <div class="card">
-	//   "${photo}"
-	//   ${name}
-	//   ${description}
-	// </div>
-	// `
+	// errore stringa
+	const card = `
+	<div class="carousel__item active">
+		<img src="${photo}" alt="">
+		<h1>${name}</h1>
+		<p> ${description}</p>	
+	</div>	
+	`
 
 	carouselElement.innerHTML += card;
 	console.log(card);
